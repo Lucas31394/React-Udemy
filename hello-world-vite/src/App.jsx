@@ -10,6 +10,7 @@ function App() {
     <>
       <div>
         <h1>Hello World - React!</h1>
+        <h2>Learning the fundamentals of <span className='react-color'>React</span></h2>
       </div>
     </>
   )
