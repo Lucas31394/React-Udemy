@@ -8,6 +8,7 @@ const Events = () => {
         <div>
             <div>
                 <button onClick={handleMyEvent}>Click here!</button>
+                <button onClick={() => console.log("Clicked!")}>Click here too!</button>
             </div>
         </div>
     )
