@@ -10,6 +10,10 @@ function App() {
     <>
       <div>
         <h1>Advancing in React - Session 3</h1>
+        {/*Image available in the public folder*/}
+        <div>
+            <img src="/img1.jpg" alt="View of a landscape" />
+        </div>
       </div>
     </>
   )
