@@ -5,6 +5,7 @@ import './App.css'
 //Images
 import City from './assets/city.jpg'
 import ManageData from './components/ManageData'
+import ListRenderer from './components/ListRenderer'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -22,6 +23,7 @@ function App() {
           <img src={City} alt="City" />
         </div>
         <ManageData/>
+        <ListRenderer/>
       </div>
     </>
   )
