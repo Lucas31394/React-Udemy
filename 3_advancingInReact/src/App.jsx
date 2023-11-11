@@ -6,6 +6,7 @@ import './App.css'
 import City from './assets/city.jpg'
 import ManageData from './components/ManageData'
 import ListRenderer from './components/ListRenderer'
+import ConditionalRenderer from './components/ConditionalRenderer'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -24,6 +25,7 @@ function App() {
         </div>
         <ManageData/>
         <ListRenderer/>
+        <ConditionalRenderer />
       </div>
     </>
   )
