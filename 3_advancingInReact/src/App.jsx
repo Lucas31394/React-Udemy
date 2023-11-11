@@ -8,6 +8,7 @@ import ManageData from './components/ManageData'
 import ListRenderer from './components/ListRenderer'
 import ConditionalRenderer from './components/ConditionalRenderer'
 import ShowUsername from './components/ShowUsername'
+import CarDetails from './components/CarDetails'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -28,7 +29,10 @@ function App() {
         <ManageData/>
         <ListRenderer/>
         <ConditionalRenderer />
+        {/*props*/}
         <ShowUsername user={username}/>
+        {/*destructuring*/}
+        <CarDetails brand="VW" km={100000} color="blue"/>
       </div>
     </>
   )
