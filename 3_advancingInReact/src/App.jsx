@@ -7,9 +7,11 @@ import City from './assets/city.jpg'
 import ManageData from './components/ManageData'
 import ListRenderer from './components/ListRenderer'
 import ConditionalRenderer from './components/ConditionalRenderer'
+import ShowUsername from './components/ShowUsername'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [username] = useState("Lucas")
 
   return (
     <>
@@ -26,6 +28,7 @@ function App() {
         <ManageData/>
         <ListRenderer/>
         <ConditionalRenderer />
+        <ShowUsername user={username}/>
       </div>
     </>
   )
