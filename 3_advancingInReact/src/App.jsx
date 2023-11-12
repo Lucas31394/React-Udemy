@@ -13,6 +13,11 @@ import CarDetails from './components/CarDetails'
 function App() {
   const [count, setCount] = useState(0)
   const [username] = useState("Lucas")
+  const cars = [
+    {id: 1, brand: "Toyota", km: 0, color: "gray", newCar: true},
+    {id: 2, brand: "Fiat", km: 53000, color: "white", newCar: false},
+    {id: 3, brand: "Renault", km: 47000, color: "purple", newCar: false}
+  ]
 
   return (
     <>
@@ -36,6 +41,10 @@ function App() {
         {/*reusing components*/}
         <CarDetails brand="BMW" km={0} color="black" newCar={true}/>
         <CarDetails brand="Chevrolet" km={70000} color="red" newCar={false}/>
+        {/*loop through object arrays*/}
+        {cars.map((car) => (
+          <CarDetails brand={car.brand} km={car.km} color={car.color} newCar={car.newCar} />
+        ))}
       </div>
     </>
   )
