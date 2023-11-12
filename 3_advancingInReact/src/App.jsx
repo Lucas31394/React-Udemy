@@ -9,9 +9,9 @@ import ListRenderer from './components/ListRenderer'
 import ConditionalRenderer from './components/ConditionalRenderer'
 import ShowUsername from './components/ShowUsername'
 import CarDetails from './components/CarDetails'
+import Fragment from './components/Fragment'
 
 function App() {
-  const [count, setCount] = useState(0)
   const [username] = useState("Lucas")
   const cars = [
     {id: 1, brand: "Toyota", km: 0, color: "gray", newCar: true},
@@ -45,6 +45,8 @@ function App() {
         {cars.map((car) => (
           <CarDetails brand={car.brand} km={car.km} color={car.color} newCar={car.newCar} />
         ))}
+        {/*fragment*/}
+        <Fragment propFragment="test"/>
       </div>
     </>
   )
