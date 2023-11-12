@@ -11,6 +11,7 @@ import ShowUsername from './components/ShowUsername'
 import CarDetails from './components/CarDetails'
 import Fragment from './components/Fragment'
 import Container from './components/Container'
+import ExecuteFunction from './components/ExecuteFunction'
 
 function App() {
   const [username] = useState("Lucas")
@@ -19,6 +20,10 @@ function App() {
     {id: 2, brand: "Fiat", km: 53000, color: "white", newCar: false},
     {id: 3, brand: "Renault", km: 47000, color: "purple", newCar: false}
   ]
+
+  function showMessage() {
+    console.log("This function were executed as a prop.")
+  }
 
   return (
     <>
@@ -44,7 +49,7 @@ function App() {
         <CarDetails brand="Chevrolet" km={70000} color="red" newCar={false}/>
         {/*loop through object arrays*/}
         {cars.map((car) => (
-          <CarDetails brand={car.brand} km={car.km} color={car.color} newCar={car.newCar} />
+          <CarDetails key={car.id} brand={car.brand} km={car.km} color={car.color} newCar={car.newCar} />
         ))}
         {/*fragment*/}
         <Fragment propFragment="test"/>
@@ -52,6 +57,8 @@ function App() {
         <Container myValue="This is my value">
           <p>This is the container content.</p>
         </Container>
+        {/*function as a prop*/}
+        <ExecuteFunction myFunction={showMessage}/>
       </div>
     </>
   )
