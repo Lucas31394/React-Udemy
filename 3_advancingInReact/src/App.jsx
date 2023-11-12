@@ -12,18 +12,26 @@ import CarDetails from './components/CarDetails'
 import Fragment from './components/Fragment'
 import Container from './components/Container'
 import ExecuteFunction from './components/ExecuteFunction'
+import Message from './components/Message'
+import ChangeMessage from './components/ChangeMessage'
 
 function App() {
-  const [username] = useState("Lucas")
+  const [username] = useState("Lucas");
   const cars = [
     {id: 1, brand: "Toyota", km: 0, color: "gray", newCar: true},
     {id: 2, brand: "Fiat", km: 53000, color: "white", newCar: false},
     {id: 3, brand: "Renault", km: 47000, color: "purple", newCar: false}
-  ]
+  ];
 
   function showMessage() {
     console.log("This function were executed as a prop.")
-  }
+  };
+
+  const [message, setMessage] = useState("");
+
+  const handleMessage = (msg) => {
+    setMessage(msg);
+  };
 
   return (
     <>
@@ -59,6 +67,9 @@ function App() {
         </Container>
         {/*function as a prop*/}
         <ExecuteFunction myFunction={showMessage}/>
+        {/*state lift*/}
+        <Message msg={message}/>
+        <ChangeMessage handleMessage={handleMessage}/>
       </div>
     </>
   )
