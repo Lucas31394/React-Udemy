@@ -10,6 +10,7 @@ import ConditionalRenderer from './components/ConditionalRenderer'
 import ShowUsername from './components/ShowUsername'
 import CarDetails from './components/CarDetails'
 import Fragment from './components/Fragment'
+import Container from './components/Container'
 
 function App() {
   const [username] = useState("Lucas")
@@ -47,6 +48,10 @@ function App() {
         ))}
         {/*fragment*/}
         <Fragment propFragment="test"/>
+        {/*chieldren*/}
+        <Container myValue="This is my value">
+          <p>This is the container content.</p>
+        </Container>
       </div>
     </>
   )
