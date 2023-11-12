@@ -32,7 +32,10 @@ function App() {
         {/*props*/}
         <ShowUsername user={username}/>
         {/*destructuring*/}
-        <CarDetails brand="VW" km={100000} color="blue"/>
+        <CarDetails brand="VW" km={100000} color="blue" newCar={false}/>
+        {/*reusing components*/}
+        <CarDetails brand="BMW" km={0} color="black" newCar={true}/>
+        <CarDetails brand="Chevrolet" km={70000} color="red" newCar={false}/>
       </div>
     </>
   )
