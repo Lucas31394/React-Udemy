@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import MyComponent from './components/MyComponent'
+import Title from './components/Title'
 
 function App() {
   const [count, setCount] = useState(0);
@@ -26,6 +27,9 @@ function App() {
         <h2 style={name === "Lucas" ?   ({color: "green", backgroundColor: "#000"}) : null}>Dynamic CSS</h2>
         {/*Dynamic class*/}
         <h2 className={redTitle ? "red-title" : "title"}>This title have dynamic class.</h2>
+        {/*CSS Modules*/}
+        <Title />
+        <h2 className='my_title'>Testing</h2>
       </div>
     </>
   )
