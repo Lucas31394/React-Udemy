@@ -1,0 +1,18 @@
+.card {
+    border: 1px solid orange;
+    border-radius: 10px;
+    padding: 10px 50px;
+    margin: 10px;
+}
+
+.car_title {
+    color: crimson;
+    background-color: #111;
+    padding: 10px;
+}
+
+.car_brand {
+    color: goldenrod;
+    background-color: #111;
+    padding: 10px;
+}
