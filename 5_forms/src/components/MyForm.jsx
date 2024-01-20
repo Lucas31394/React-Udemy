@@ -17,6 +17,8 @@ const MyForm = ({user}) => {
         e.preventDefault();
         console.log("Sending the form...")
         console.log(name, email);
+        setName("");
+        setEmail("");
     };
 
   return (
