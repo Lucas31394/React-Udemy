@@ -21,12 +21,27 @@ function App() {
 
   console.log(words);
 
+  // Starts the secret word game
+  const start = () => {
+    setGameStage(stages[1].name);
+  };
+
+  // Verify the input letter
+  const verify = () => {
+    setGameStage(stages[2].name);
+  };
+
+  // Restart the game
+  const restart = () => {
+    setGameStage(stages[0].name);
+  };
+
   return (
     <>
       <div className='App'>
-        {gameStage === 'start' && <StartScreen />}
-        {gameStage === 'game' && <Game />}
-        {gameStage === 'end' && <GameOver />}
+        {gameStage === 'start' && <StartScreen start = {start}/>}
+        {gameStage === 'game' && <Game verify = {verify}/>}
+        {gameStage === 'end' && <GameOver restart={restart}/>}
       </div>
     </>
   )
