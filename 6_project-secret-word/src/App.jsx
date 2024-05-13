@@ -23,7 +23,7 @@ function App() {
   const [chosenCategory, setChosenCategory] = useState("");
   const [letters, setletters] = useState([]);
 
-  const [guessedLetters, setGessedLetters] = useState([]);
+  const [guessedLetters, setGuessedLetters] = useState([]);
   const [wrongLetters, setWrongLetters] = useState([]);
   const [attempts, setAttempts] = useState(3);
   const [score, setScore] = useState(0);
@@ -66,7 +66,27 @@ function App() {
 
   // Verify the input letter
   const verify = (letter) => {
-    console.log(letter);
+    const normalizedLetter = letter.toLowerCase();
+
+    // Check if the letter has already been utilized
+    if(guessedLetters.includes(normalizedLetter) || wrongLetters.includes(normalizedLetter)) {
+      return;
+    }
+    
+    // Push the letter to the guessed letters or remove a chance
+    if(letters.includes(normalizedLetter)) {
+      setGuessedLetters((actualGuessedLetters) => [
+        ...actualGuessedLetters, normalizedLetter
+      ]);
+    }
+    else {
+      setWrongLetters((actualWrongLetters) => [
+        ...actualWrongLetters, normalizedLetter
+      ]);
+    }
+
+    console.log(guessedLetters);
+    console.log(wrongLetters);
   };
 
   // Restart the game
