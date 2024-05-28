@@ -116,7 +116,7 @@ function App() {
       <div className='App'>
         {gameStage === 'start' && <StartScreen start = {start}/>}
         {gameStage === 'game' && <Game verify = {verify} chosenWord = {chosenWord} chosenCategory = {chosenCategory} letters = {letters} guessedLetters = {guessedLetters} wrongLetters = {wrongLetters} attempts = {attempts} score = {score}/>}
-        {gameStage === 'end' && <GameOver restart={restart}/>}
+        {gameStage === 'end' && <GameOver restart = {restart} score = {score}/>}
       </div>
     </>
   )
