@@ -25,9 +25,38 @@ const insertPhoto = async(req, res) => {
         res.status(422).json({
             errors: ["A problem ocurred while trying to save your photo, please try again latter."]
         })
+        return;
     }
 
     res.status(201).json(newPhoto);
 };
 
-module.exports = {insertPhoto};
+// Remove a photo from db
+const deletePhoto= async(req, res) => {
+    const {id} = req.params;
+
+    const reqUser = req.user;
+
+    try {
+        const photo = await Photo.findById(new mongoose.Types.ObjectId(id));
+
+        // Check if the photo belong to the user
+        if(!photo.userId.equals(reqUser._id)) {
+            res.status(422).json({
+                errors: ["A problem ocurred while trying to delete your photo, please try again latter."]
+            });
+            return;
+        }
+
+        await Photo.findByIdAndDelete(photo._id);
+
+        res.status(200).json({id: photo._id, message: "Photo successfully excluded."});
+    } catch (error) {
+        res.status(404).json({
+            errors: ["Photo not found."]
+        });
+        return;
+    }
+};
+
+module.exports = {insertPhoto, deletePhoto};
