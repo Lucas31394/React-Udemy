@@ -122,6 +122,37 @@ const updatePhoto = async(req, res) => {
         });
         return;
     }
+};
+
+// Like funcionality
+const likePhoto = async(req, res) => {
+    const {id} = req.params;
+
+    const reqUser = req.user;
+
+    try {
+        const photo = await Photo.findById(id);
+
+        // Check if the user already liked the photo
+        if(photo.likes.includes(reqUser._id)) {
+            res.status(422).json({
+                errors: ["You already liked this photo"]
+            });
+            return;
+        }
+
+        // Put user id in likes array
+        photo.likes.push(reqUser._id);
+
+        photo.save();
+
+        res.status(200).json({photoId: id, userId: reqUser._id, message: "You liked the photo!"})
+    } catch (error) {
+        res.status(404).json({
+            errors: ["Photo not found."]
+        });
+        return;
+    }
 }
 
-module.exports = {insertPhoto, deletePhoto, getAllPhotos, getUserFotos, getPhotoById, updatePhoto};
+module.exports = {insertPhoto, deletePhoto, getAllPhotos, getUserFotos, getPhotoById, updatePhoto, likePhoto};
