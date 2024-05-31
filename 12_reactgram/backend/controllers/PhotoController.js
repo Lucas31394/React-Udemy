@@ -153,6 +153,41 @@ const likePhoto = async(req, res) => {
         });
         return;
     }
+};
+
+// Comment funcionality
+const commentPhoto = async(req, res) => {
+    const {id} = req.params;
+    const {comment} = req.body;
+    const reqUser = req.user;
+
+    try {
+        const photo = await Photo.findById(id);
+
+        const user = await User.findById(reqUser._id);
+
+        // Add the comment in the comment array
+        const userComment = {
+            comment,
+            userName: user.name,
+            userImage: user.profileImage,
+            userId: user._id
+        };
+
+        photo.comments.push(userComment);
+
+        await photo.save();
+
+        res.status(200).json({
+            comment: userComment,
+            message: "Comment added successfully."
+        });
+    } catch (error) {
+        res.status(404).json({
+            errors: ["Photo not found."]
+        });
+        return;
+    }
 }
 
-module.exports = {insertPhoto, deletePhoto, getAllPhotos, getUserFotos, getPhotoById, updatePhoto, likePhoto};
+module.exports = {insertPhoto, deletePhoto, getAllPhotos, getUserFotos, getPhotoById, updatePhoto, likePhoto, commentPhoto};
