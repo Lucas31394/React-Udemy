@@ -12,7 +12,7 @@ const initialState = {
 
 // Register an user and sign in
 export const register = createAsyncThunk("auth/register", async(user, thunkAPI) => {
-    const date = await authService.register(user);
+    const data = await authService.register(user);
 
     // check errors
     if(data.errors) {
