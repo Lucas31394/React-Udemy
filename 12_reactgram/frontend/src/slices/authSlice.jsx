@@ -53,29 +53,35 @@ export const authSlice = createSlice({
         builder.addCase(register.pending, (state) => {
             state.loading = true;
             state.error = false;
-        }).addCase(register.fulfilled, (state, action) => {
+        })
+        .addCase(register.fulfilled, (state, action) => {
             state.loading = false;
             state.success = true;
             state.error = null;
             state.user = action.payload;
-        }).addCase(register.rejected, (state, action) => {
+        })
+        .addCase(register.rejected, (state, action) => {
             state.loading = false;
             state.error = action.payload;
             state.user = null;
-        }).addCase(logout.fulfilled, (state, action) => {
+        })
+        .addCase(logout.fulfilled, (state, action) => {
             state.loading = false;
             state.success = true;
             state.error = null;
             state.user = null;
-        }).addCase(login.pending, (state) => {
+        })
+        .addCase(login.pending, (state) => {
             state.loading = true;
             state.error = false;
-        }).addCase(login.fulfilled, (state, action) => {
+        })
+        .addCase(login.fulfilled, (state, action) => {
             state.loading = false;
             state.success = true;
             state.error = null;
             state.user = action.payload;
-        }).addCase(login.rejected, (state, action) => {
+        })
+        .addCase(login.rejected, (state, action) => {
             state.loading = false;
             state.error = action.payload;
             state.user = null;
