@@ -9,7 +9,8 @@ const initialState = {
     message: null
 };
 
-export const getUserDetails = createAsyncThunk(
+// Get user details
+export const profile = createAsyncThunk(
     "user/profile",
     async (user, thunkAPI) => {
         const token = thunkAPI.getState().auth.user.token;
