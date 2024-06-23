@@ -1,6 +1,6 @@
 import "./EditProfile.css";
 
-import { upload } from "../../utils/config";
+import { uploads } from "../../utils/config";
 
 // Hooks
 import { useState, useEffect } from "react";
@@ -92,7 +92,15 @@ const EditProfile = () => {
         <h2>Edite seus dados</h2>
         <p className="subtitle">Adicione uma imagem de perfil e conte mais sobre você...</p>
         {(user.profileImage || previewImage) && (
-            <img className="profile-image" src={previewImage ? URL.createObjectURL(previewImage) : `${uploads}/users/${user.profileImage}`} alt={user.name}/>
+            <img 
+                className="profile-image" 
+                src={
+                    previewImage
+                        ? URL.createObjectURL(previewImage)
+                        : `${uploads}/users/${user.profileImage}`
+                }
+                alt={user.name}
+            />
         )}
         <form onSubmit={handleSubmit}>
             <input type="text" placeholder="Nome" onChange={(e) => setName(e.target.value)} value={name || ""} />
