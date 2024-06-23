@@ -41,7 +41,7 @@ export const updateProfile = createAsyncThunk(
 export const userSlice = createSlice({
     name: "user",
     initialState,
-    reducer: {
+    reducers: {
         resetMessage: (state) => {
             state.message = null;
         }
@@ -71,10 +71,10 @@ export const userSlice = createSlice({
         .addCase(updateProfile.rejected, (state, action) => {
             state.loading = false;
             state.error = action.payload;
-            state.user = null;
-        })
+            state.user = {};
+        });
     }
-})
+});
 
-export const {resetMessage} = userSlice.actions;
+export const { resetMessage } = userSlice.actions;
 export default userSlice.reducer;
