@@ -46,8 +46,8 @@ const deletePhoto = async(id, token) => {
 };
 
 // Update photo
-const updatePhoto = async(id, token) => {
-    const config = requestConfig("PUT", null, token);
+const updatePhoto = async(data, id, token) => {
+    const config = requestConfig("PUT", data, token);
 
     try {
         const res = await fetch(api + "/photos/" + id, config)
