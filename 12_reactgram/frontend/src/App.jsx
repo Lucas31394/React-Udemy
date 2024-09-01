@@ -17,6 +17,7 @@ import Login from './pages/Auth/Login';
 import Register from './pages/Auth/Register';
 import EditProfile from './pages/EditProfile/EditProfile';
 import Profile from './pages/Profile/Profile';
+import Photo from './pages/Photo/Photo';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -38,6 +39,7 @@ function App() {
             <Route path="/users/:id" element={auth ? <Profile /> : <Navigate to="/login"/>}></Route>
             <Route path="/login" element={!auth ? <Login /> : <Navigate to="/"/>}></Route>
             <Route path="/register" element={!auth ? <Register /> : <Navigate to="/"/>}></Route>
+            <Route path="/photos/:id" element={auth ? <Photo /> : <Navigate to="/login"/>}></Route>
           </Routes>
           </div>
           <Footer />
