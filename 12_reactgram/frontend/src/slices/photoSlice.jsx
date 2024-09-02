@@ -97,6 +97,22 @@ export const like = createAsyncThunk(
 
         return data;
     }
+);
+
+// Comment a photo
+export const comment = createAsyncThunk(
+    "photo/comment", 
+    async(photoData, thunkAPI) => {
+        const token = thunkAPI.getState().auth.user.token;
+
+        const data = await photoService.comment({comment: photoData.comment}, photoData.id, token);
+
+        if(data.errors) {
+            return thunkAPI.rejectWithValue(data.errors[0]);
+        }
+
+        return data;
+    }
 )
 
 export const photoSlice = createSlice({
