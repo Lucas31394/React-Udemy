@@ -220,6 +220,19 @@ export const photoSlice = createSlice({
             state.loading = false;
             state.error = action.payload;
         })
+        .addCase(comment.fulfilled, (state, action) => {
+            state.loading = false;
+            state.success = true;
+            state.error = null;
+
+            state.photo.comments.push(action.payload.comment);
+
+            state.message = action.payload.message;
+        })
+        .addCase(comment.rejected, (state, action) => {
+            state.loading = false;
+            state.error = action.payload;
+        })
     }
 });
 
